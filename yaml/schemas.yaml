@@ -1,0 +1,51 @@
+schemas:
+  Error:
+    type: object
+    properties:
+      message:
+        type: string
+        description: Message
+
+  AWSError:
+    type: string
+
+  StaircaseRequestCollection:
+    description: A Staircase Collection holds a set of datapoints, connected to a Staircase Transaction
+    type: object
+    properties:
+      data:
+        type: object
+        description: Customer Input Data
+      metadata:
+        type: object
+        description: Staircase metadata
+      transaction_id:
+        $ref: '#/components/schemas/TransactionId'
+      collection_id:
+        $ref: '#/components/schemas/CollectionId'
+    additionalProperties: false
+
+  StaircaseElements:
+    description: Staircase Elements JSON object with paths and values
+    type: object
+    properties:
+      path:
+        type: string
+        description: Contains the path in Staircase language
+      value:
+        type: string
+        nullable: true
+        description: Enter your own values here
+
+
+  TransactionId:
+    type: string
+    format: uuid
+    description: Staircase Transaction Identifier
+    example: 8109c79a-e50b-46b8-8032-0d6e556dfaa0
+
+  CollectionId:
+    type: string
+    format: uuid
+    description: Staircase Collection Identifier
+    example: 6b19feeb-7433-448e-b285-b758d19a4fe6
