@@ -1,0 +1,57 @@
+parameters:
+  apiKeyDocumentation:
+    name: x-api-key
+    in: header
+    required: true
+    schema:
+      type: string
+      default: f70be70c-31cd-43ce-9941-961e54840c9a
+    description: Staircase Documentation Environment API Key
+
+  transactionIdQueryRequired:
+    name: transaction_id
+    in: query
+    required: true
+    description: Staircase Transaction Identifier
+    schema:
+      $ref: 'schemas.yaml#/schemas/TransactionId'
+
+  transactionIdQueryNotRequired:
+    name: transaction_id
+    in: query
+    required: false
+    description: Staircase Transaction Identifier
+    schema:
+      $ref: '#/components/schemas/TransactionId'
+
+  transactionIdPathRequired:
+    name: transaction_id
+    in: "path"
+    required: true
+    description: Staircase Transaction Identifier
+    schema:
+      $ref: '#/components/schemas/TransactionId'
+
+  transactionIdPathNotRequired:
+    name: "transaction_id"
+    in: "query"
+    required: false
+    description: Staircase transaction_id
+    schema:
+      $ref: '#/components/schemas/TransactionId'
+
+  collectionIdQueryRequired:
+    name: "collection_id"
+    in: "query"
+    required: true
+    description: Staircase collection_id
+    schema:
+      $ref: '#/components/schemas/CollectionId'
+
+  collectionIdPathRequired:
+    name: "collection_id"
+    in: "path"
+    required: true
+    description: Staircase collection_id
+    schema:
+      $ref: '#/components/schemas/CollectionId'
