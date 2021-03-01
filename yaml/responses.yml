@@ -1,1 +1,96 @@
+response_examples:
+
+  InvalidCollectionId:
+    value:
+      message: Submitted collection_id {collection_id} is not a valid UUID. Please re-submit using a valid UUID string.
+  
+  InvalidTransactionId:
+    value:
+      message: Submitted transaction_id {transaction_id} is not a valid UUID. Please re-submit using a valid UUID string.
+  
+  InvalidPartnerName:
+    value:
+      message: Submitted partner_name {partner_name} is not a valid partner name. Please re-submit a valid partner name.
+  
+  CollectionMissingTransactionId:
+    value:
+      message: Missing parameter transaction_id. Please specify parameter and re-submit.
+  
+  CollectionMissingCollectionId:
+    value:
+      message: Missing parameter collection_id. Please specify parameter and re-submit.
+  
+  CollectionEmptyBody:
+    value:
+      message: Missing HTTP body while updating collection. Please provide a valid body.
+  
+  CollectionInvalidBody:
+    value:
+      message: "The body provided while updating collection is not a valid JSON. Error Details: {}"
+  
+  CollectionMissingData:
+    value:
+      message: The body provided updating collection is missing data key. Please resubmit a valid body with data key.
+  
+  CollectionNotFound:
+    value:
+      message: 'The collection being update does not exists. Please specify an existing collection_id'
+
+
+
+responses: 
+
+  400UpdateCollection:
+    description: Request data failed validation
+    content:
+      application/json:
+        schema:
+          $ref: 'schemas.yml#/schemas/Error'
+        examples:
+          UpdateCollectionMissingTransactionId:
+            $ref: '#/response_examples/CollectionMissingTransactionId'
+          UpdateCollectionMissingCollectionId:
+            $ref: '#/response_examples/CollectionMissingCollectionId'
+          UpdateCollectionEmptyBody:
+            $ref: '#/response_examples/CollectionEmptyBody'           
+          UpdateCollectionInvalidBody:
+            $ref: '#/response_examples/CollectionEmptyBody'
+          UpdateCollectionMissingData:
+            $ref: '#/response_examples/CollectionMissingData'
+      text/html:
+        schema:
+          $ref: 'schemas.yml#/schemas/Error'
+
+  404UpdateCollection:
+    description: Missing Resource
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/Error'
+        examples:
+          CollectionNotFound:
+            $ref: '#/response_examples/CollectionNotFound'  
+  422UpdateCollection:
+    description: Error 422
+    content:
+      # REVIEW this fixes prism Content-Type Error
+      application/problem+json:
+        schema:
+          $ref: '#/components/schemas/PrismError'
+      application/json:
+        schema:
+          $ref: '#/components/schemas/Error'
+        examples:
+          MissingTransactionId:
+            value:
+              message: 'Parameter transaction_id  needs to be specified.'
+          InvalidTransactionId:
+            $ref: '#/components/examples/InvalidTransactionId'
+          MissingCollectionId:
+            value:
+              message: 'Parameter collection_id  needs to be specified.'
+          InvalidCollectionId:
+            $ref: '#/components/examples/InvalidTransactionId'
+  '500':
+    $ref: '#/components/responses/500InternalServerError'
 
