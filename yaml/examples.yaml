@@ -1,0 +1,11 @@
+  examples:
+    # 422 error examples
+    InvalidCollectionId:
+      value:
+        message: Submitted collection_id {collection_id} is not a valid UUID. Please re-submit using a valid UUID string.
+    InvalidTransactionId:
+      value:
+        message: Submitted transaction_id {transaction_id} is not a valid UUID. Please re-submit using a valid UUID string.
+    InvalidPartnerName:
+      value:
+        message: Submitted partner_name {partner_name} is not a valid partner name. Please re-submit a valid partner name.
