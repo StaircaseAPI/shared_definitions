@@ -40,7 +40,7 @@ schemas:
 
   TransactionId:
     type: string
-    format: uuid
+    format: ulid
     description: Staircase Transaction Identifier
     example: 8109c79a-e50b-46b8-8032-0d6e556dfaa0
 
