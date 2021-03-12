@@ -1,0 +1,10 @@
+  components:
+    responses:
+     201Response:
+      description: "Transaction have been created"
+      content:
+        application/json:
+          schema:
+            $ref: "../../general/TransactionId"
+      '403':
+        $ref: '#/components/responses/403Unauthorized'
