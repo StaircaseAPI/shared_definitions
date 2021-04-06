@@ -1,0 +1,181 @@
+openapi: "3.0.3"
+info:
+  title: "Data"
+  version: "1.0.0"
+  description: |-
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="UTF-8">
+    </head>
+    <body>
+      <h2>Overview</h2>
+      <p>
+          <b>Data manager</b> is a CRUD service which persists data in collections - data points structured according to Staircase language schema.
+      </p>
+    </body>
+    </html>
+
+servers:
+  - url: 'https://documentation.staircaseapi.com/persistence'
+paths:
+  /transactions/{transaction_id}/collections/{collection_id}:
+    get:
+      tags:
+        - Collections
+      summary: "Retrieve Collection"
+      description: "Retrieve Collection"
+      operationId: "get_collection"
+      parameters:
+      - name: "collection_id"
+        in: "path"
+        description: "Collection ID"
+        required: true
+        schema:
+          type: "string"
+          format: "ulid"
+      - name: "transaction_id"
+        in: "path"
+        description: "Transaction ID"
+        required: true
+        schema:
+          type: "string"
+          format: "ulid"
+      - name: "refs"
+        in: "query"
+        description: "If `true` refs will not be resolved"
+        required: false
+        schema:
+          "type": "boolean"
+      responses:
+        '200':
+          description: "200 response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Collection"
+              example:
+                transaction_id: "dfa22839-8ecd-40c0-9bcb-b70f78002cdb"
+                collection_id: "104592a7-fcbe-4fa3-92e9-90e2b648a0a4"
+                metadata: {}
+                data:
+                  deal_sets:
+                  - assets:
+                    - account_identifier: '1523421245'
+                      cash_or_market_value: 45000.0
+                      holder_name: BankA
+                      type: SavingsAccount
+                    collaterals:
+                    - address:
+                        city: Winston Salem
+                        line_text: 1234 Main St
+                        postal_code: '27104'
+                        state_code: NC
+                      property_detail:
+                        attachment_type: Detached
+                        construction_method_type: SiteBuilt
+                        estate_type: FeeSimple
+                        estimated_value: 225000.0
+                        financed_unit_count: 1
+                        is_existing_clean_energy_lien: false
+                        is_in_project: false
+                        is_mixed_usage: false
+                        is_pud: false
+                        usage_type: PrimaryResidence
+                      property_valuations:
+                        property_valuation:
+                        - property_valuation_detail:
+                            amount: 225000.0
+                            appraisal_identifier: 1100AA1111
+                      sales_contracts:
+                        sales_contract:
+                        - sales_contract_detail:
+                            amount: 225000.0
+                    expenses:
+                    - EXTENSION: <EXTENSION xmlns:lpa="http://www.datamodelextension.org/Schema/LPA"
+                        xmlns="http://www.mismo.org/residential/2009/schemas" xmlns:lparqst="http://www.freddiemac.com/lpa/LPALoanAssessmentService/schemas"
+                        xmlns:ulad="http://www.datamodelextension.org/Schema/ULAD" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><OTHER><EXPENSE_EXTENSION><ExpenseExclusionIndicator>false</ExpenseExclusionIndicator></EXPENSE_EXTENSION></OTHER></EXTENSION>
+                      monthly_payment: 127.0
+                      type: JobRelatedExpenses
+                    liabilities:
+                    - account_identifier: '913432'
+                      holder_name: Toyota Credit
+                      is_exclusion: false
+                      is_payoff_status: false
+                      monthly_payment: 500.0
+                      type: Installment
+                      unpaid_balance: 15838.0
+                    loans:
+                    - amortization:
+                        loan_period_count: 360
+                        loan_period_type: Month
+                        type: Fixed
+                      application_received_date: '2019-03-21'
+                      cash_out_determination_type: null
+                      document_specific_data_sets:
+                      - EXTENSION: <EXTENSION xmlns:lpa="http://www.datamodelextension.org/Schema/LPA"
+                          xmlns="http://www.mismo.org/residential/2009/schemas" xmlns:lparqst="http://www.freddiemac.com/lpa/LPALoanAssessmentService/schemas"
+                          xmlns:ulad="http://www.datamodelextension.org/Schema/ULAD" xmlns:xlink="http://www.w3.org/1999/xlink"
+                          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><OTHER><URLA_TOTAL_EXTENSION><URLATotalSellerCreditsAmount>2250</URLATotalSellerCreditsAmount></URLA_TOTAL_EXTENSION></OTHER></EXTENSION>
+                        estimated_closing_costs: 6750.0
+                        mi_and_funding_fee_financed: 0.0
+                        prepaid_items_estimated: 2300.0
+                      housing_expenses:
+                      - payment: 506.69
+                        timing_type: Proposed
+                        type: FirstMortgagePrincipalAndInterest
+                      - payment: 153.0
+                        timing_type: Proposed
+                        type: HomeownersInsurance
+                      - payment: 188.0
+                        timing_type: Proposed
+                        type: RealEstateTax
+                      - payment: 123.0
+                        timing_type: Proposed
+                        type: Other
+                        type_other: WaterSewerAssessment
+                      is_balloon: false
+                      is_buydown_temporary_subsidy_funding: false
+                      is_construction: false
+                      is_interest_only: false
+                      is_prepayment_penalty: false
+                      loan_identifiers:
+                      - identifier: '1122334455'
+                        type: LenderLoan
+                      - identifier: '111198756421356000'
+                        type: MERS_MIN
+                      - identifier: '1234567890'
+                        type: UniversalLoan
+                      loan_product:
+                        description: 30YrFixed
+                        discount_points_total: 2100.0
+                      loan_statuses:
+                      - identifier: Underwriting
+                      origination_systems:
+                      - loan_vendor_identifier: '000000'
+                        loan_version_identifier: '2.7'
+                      projected_reserves: 100000.0
+                      purchase_credits:
+                      - amount: 1000.0
+                        source_type: BorrowerPaidOutsideClosing
+                        type: EarnestMoney
+                      - amount: 750.0
+                        source_type: Lender
+                        type: Other
+                        type_other: ClosingCosts
+                      qualifying_rate_percent: null
+                      terms_of_loan:
+                        base: 100000.0
+                        lien_priority_type: FirstLien
+                        mortgage_type: Conventional
+                        note_rate_percent: 4.5
+                        purpose_type: Purchase
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '403':
+          $ref: '#/components/responses/403Unauthorized'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '422':
+          $ref: '#/components/responses/422UnprocessableEntity'
