@@ -25,11 +25,11 @@ paths:
       responses:
         '200':
           $ref: "https://raw.githubusercontent.com/StaircaseAPI/shared_definitions/main/yaml/responses.yml#/responses/200CollectionCreated"
-        # '400':
-        #   $ref: '#/components/responses/400BadRequest'
-        # '403':
-        #   $ref: '#/components/responses/403Unauthorized'
-        # '404':
-        #   $ref: '#/components/responses/404NotFound'
-        # '422':
-        #   $ref: '#/components/responses/422UnprocessableEntity'
+#         # '400':
+#         #   $ref: '#/components/responses/400BadRequest'
+#         # '403':
+#         #   $ref: '#/components/responses/403Unauthorized'
+#         # '404':
+#         #   $ref: '#/components/responses/404NotFound'
+#         # '422':
+#         #   $ref: '#/components/responses/422UnprocessableEntity'
