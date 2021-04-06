@@ -7,5 +7,4 @@ servers:
   - url: 'https://documentation.staircaseapi.com/persistence'
 paths:
   /transactions/{transaction_id}/collections/{collection_id}:
-    get:
-      $ref: "https://raw.githubusercontent.com/StaircaseAPI/shared_definitions/main/persistence_sample.yaml#/paths/~1transactions~1%7Btransaction_id%7D~1collections~1%7Bcollection_id%7D/get"
+    $ref: "https://raw.githubusercontent.com/StaircaseAPI/shared_definitions/main/persistence_sample.yaml#/paths/~1transactions~1%7Btransaction_id%7D~1collections~1%7Bcollection_id%7D"
