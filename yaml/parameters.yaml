@@ -46,7 +46,7 @@ parameters:
     required: true
     description: Staircase collection_id
     schema:
-      $ref: 'schemas.yaml#/schemas/TransactionId'
+      $ref: 'schemas.yaml#/schemas/CollectionId'
 
   collectionIdPathRequired:
     name: "collection_id"
@@ -54,4 +54,4 @@ parameters:
     required: true
     description: Staircase collection_id
     schema:
-      $ref: 'schemas.yaml#/schemas/TransactionId'
+      $ref: 'schemas.yaml#/schemas/CollectionId'
