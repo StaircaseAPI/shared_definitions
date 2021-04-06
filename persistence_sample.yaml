@@ -2,19 +2,6 @@ openapi: "3.0.3"
 info:
   title: "Data"
   version: "1.0.0"
-  description: |-
-    <!DOCTYPE html>
-    <html>
-    <head>
-    <meta charset="UTF-8">
-    </head>
-    <body>
-      <h2>Overview</h2>
-      <p>
-          <b>Data manager</b> is a CRUD service which persists data in collections - data points structured according to Staircase language schema.
-      </p>
-    </body>
-    </html>
 
 servers:
   - url: 'https://documentation.staircaseapi.com/persistence'
@@ -37,7 +24,7 @@ paths:
           "type": "boolean"
       responses:
         '200':
-          $ref: "https://raw.githubusercontent.com/StaircaseAPI/shared_definitions/main/yaml/response.yaml#/response/200CollectionCreated"
+          $ref: "https://raw.githubusercontent.com/StaircaseAPI/shared_definitions/main/yaml/responses.yml#/responses/200CollectionCreated"
         '400':
           $ref: '#/components/responses/400BadRequest'
         '403':
