@@ -20,9 +20,9 @@ schemas:
         type: object
         description: Staircase metadata
       transaction_id:
-        $ref: '#/components/schemas/TransactionId'
+        $ref: 'schemas.yaml#/schemas/TransactionId'
       collection_id:
-        $ref: '#/components/schemas/CollectionId'
+        $ref: 'schemas.yaml#/schemas/CollectionId'
     additionalProperties: false
 
   StaircaseElements:
