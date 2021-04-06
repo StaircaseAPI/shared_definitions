@@ -41,7 +41,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Collection"
+                $ref: "https://raw.githubusercontent.com/StaircaseAPI/shared_definitions/main/yaml/schemas.yaml#/schemas/StaircaseRequestCollection"
               example:
                 transaction_id: "dfa22839-8ecd-40c0-9bcb-b70f78002cdb"
                 collection_id: "104592a7-fcbe-4fa3-92e9-90e2b648a0a4"
