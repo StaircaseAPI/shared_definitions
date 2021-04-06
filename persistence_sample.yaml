@@ -27,16 +27,10 @@ paths:
       description: "Retrieve Collection"
       operationId: "get_collection"
       parameters:
+      - $ref: 'https://raw.githubusercontent.com/StaircaseAPI/shared_definitions/main/yaml/parameters.yaml#/parameters/transactionIdPathRequired'
       - name: "collection_id"
         in: "path"
         description: "Collection ID"
-        required: true
-        schema:
-          type: "string"
-          format: "ulid"
-      - name: "transaction_id"
-        in: "path"
-        description: "Transaction ID"
         required: true
         schema:
           type: "string"

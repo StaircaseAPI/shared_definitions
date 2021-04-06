@@ -22,7 +22,7 @@ parameters:
     required: false
     description: Staircase Transaction Identifier
     schema:
-      $ref: '#/components/schemas/TransactionId'
+      $ref: 'schemas.yaml#/schemas/TransactionId'
 
   transactionIdPathRequired:
     name: transaction_id
@@ -30,7 +30,7 @@ parameters:
     required: true
     description: Staircase Transaction Identifier
     schema:
-      $ref: '#/components/schemas/TransactionId'
+      $ref: 'schemas.yaml#/schemas/TransactionId'
 
   transactionIdPathNotRequired:
     name: "transaction_id"
@@ -38,7 +38,7 @@ parameters:
     required: false
     description: Staircase transaction_id
     schema:
-      $ref: '#/components/schemas/TransactionId'
+      $ref: 'schemas.yaml#/schemas/TransactionId'
 
   collectionIdQueryRequired:
     name: "collection_id"
@@ -46,7 +46,7 @@ parameters:
     required: true
     description: Staircase collection_id
     schema:
-      $ref: '#/components/schemas/CollectionId'
+      $ref: 'schemas.yaml#/schemas/TransactionId'
 
   collectionIdPathRequired:
     name: "collection_id"
@@ -54,4 +54,4 @@ parameters:
     required: true
     description: Staircase collection_id
     schema:
-      $ref: '#/components/schemas/CollectionId'
+      $ref: 'schemas.yaml#/schemas/TransactionId'
