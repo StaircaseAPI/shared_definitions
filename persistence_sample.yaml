@@ -28,13 +28,7 @@ paths:
       operationId: "get_collection"
       parameters:
       - $ref: 'https://raw.githubusercontent.com/StaircaseAPI/shared_definitions/main/yaml/parameters.yaml#/parameters/transactionIdPathRequired'
-      - name: "collection_id"
-        in: "path"
-        description: "Collection ID"
-        required: true
-        schema:
-          type: "string"
-          format: "ulid"
+      - $ref: 'https://raw.githubusercontent.com/StaircaseAPI/shared_definitions/main/yaml/parameters.yaml#/parameters/collectionIdPathRequired'
       - name: "refs"
         in: "query"
         description: "If `true` refs will not be resolved"
